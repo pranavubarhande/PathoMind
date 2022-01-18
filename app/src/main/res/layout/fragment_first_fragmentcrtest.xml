@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".FirstFragmentcrtest">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fit 20 Questions in 4 Images Only"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Image1"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_bg"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/frag1button1"/>
+
+    <ImageView
+        android:id="@+id/frag1imgView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Image2"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_bg"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/frag1button2"/>
+    <ImageView
+        android:id="@+id/frag1imgView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Image3"
+
+        app:backgroundTint="@null"
+        android:background="@drawable/button_bg"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/frag1button3"/>
+    <ImageView
+        android:id="@+id/frag1imgView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Image4"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_bg"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/frag1button4"/>
+    <ImageView
+        android:id="@+id/frag1imgView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Test"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_bg"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/frag1finalbutton"/>
+
+
+</LinearLayout>

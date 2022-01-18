@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    \\ yellow shades
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="yellowshade1">#fff689</color>
+    <color name="yellowshade2">#fff142</color>
+    <color name="yellowshade3">#f9e800</color>
+    <color name="yellowshade4">#b2a600</color>
+    <color name="yellowshade5">#6b6300</color>
+
+
+    \\black shades
+    <color name="blackshade1">#232323</color>
+    <color name="blackshade2">#474747</color>
+    <color name="blackshade3">#6b6b6b</color>
+    <color name="blackshade4">#a0a0a0</color>
+    <color name="blackshade5">#c4c4c4</color>
+
+    \\brown shades
+    <color name="brownshade1">#ffe789</color>
+    <color name="brownshade2">#ffe066</color>
+    <color name="brownshade3">#f9c700</color>
+    <color name="brownshade4">#8e7200</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="pinkshade">#FFF48FB1</color>
+
+    <color name="blueshade">#23D0E7</color>
+
+
+
+
+</resources>

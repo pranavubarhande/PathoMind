@@ -22,10 +22,10 @@
         android:background="@drawable/button_bg"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:id="@+id/frag1button1"/>
+        android:id="@+id/frag4button1"/>
 
     <ImageView
-        android:id="@+id/frag1imgView1"
+        android:id="@+id/frag4imgView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -37,9 +37,9 @@
         android:background="@drawable/button_bg"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:id="@+id/frag1button2"/>
+        android:id="@+id/frag4button2"/>
     <ImageView
-        android:id="@+id/frag1imgView2"
+        android:id="@+id/frag4imgView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
@@ -51,9 +51,9 @@
         android:background="@drawable/button_bg"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:id="@+id/frag1button3"/>
+        android:id="@+id/frag4button3"/>
     <ImageView
-        android:id="@+id/frag1imgView3"
+        android:id="@+id/frag4imgView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -65,7 +65,7 @@
         android:background="@drawable/button_bg"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="5dp"
-        android:id="@+id/frag1finalbutton"/>
+        android:id="@+id/frag4finalbutton"/>
 
 
 </LinearLayout>

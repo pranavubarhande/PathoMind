@@ -1,12 +1,40 @@
 package com.example.checkerapp;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.example.checkerapp.AftercreatedetailsActivity;
+import com.example.checkerapp.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.io.ByteArrayOutputStream;
+import java.util.UUID;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,28 +43,27 @@ import android.view.ViewGroup;
  */
 public class FourthFragmentcrtest extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM1 = "mytestname";
+    private static final String ARG_PARAM2 = "mytestdescription";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    static String testuniquekey;
+
+
+    Button button1, button2, button3, button4;
+    ImageView imageView1, imageView2, imageView3;
+
+
+    StorageReference storageReference;
+    ProgressDialog progressDialog;
+
+
+    private String testnametobesaved;
+    private String testdescriptiontobesaved;
 
     public FourthFragmentcrtest() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FourthFragmentcrtest.
-     */
-    // TODO: Rename and change types and number of parameters
     public static FourthFragmentcrtest newInstance(String param1, String param2) {
         FourthFragmentcrtest fragment = new FourthFragmentcrtest();
         Bundle args = new Bundle();
@@ -45,20 +72,223 @@ public class FourthFragmentcrtest extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fourth_fragmentcrtest, container, false);
+        View view =  inflater.inflate(R.layout.fragment_fourth_fragmentcrtest, container, false);
+        button1 = (Button) view.findViewById(R.id.frag4button1);
+        button2 = (Button) view.findViewById(R.id.frag4button2);
+        button3 = (Button) view.findViewById(R.id.frag4button3);
+        button4 = (Button) view.findViewById(R.id.frag4finalbutton);
+        imageView1 = (ImageView) view.findViewById(R.id.frag4imgView1);
+        imageView2 = (ImageView) view.findViewById(R.id.frag4imgView2);
+        imageView3 = (ImageView) view.findViewById(R.id.frag4imgView3);
+
+        return view;
     }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public void onAttach(@NonNull @NotNull Context context) {
+        super.onAttach(context);
+    }
+    static int mycode;
+    ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+
+            if (result.getResultCode() == Activity.RESULT_OK && mycode == 1){
+                assert result.getData() != null;
+                Bundle bundle = result.getData().getExtras();
+                Bitmap bitmap = (Bitmap) bundle.get("data");
+
+
+                imageView1.setImageBitmap(bitmap);
+
+
+            }
+            if (result.getResultCode() == Activity.RESULT_OK && mycode == 2){
+                assert result.getData() != null;
+                Bundle bundle = result.getData().getExtras();
+                Bitmap bitmap = (Bitmap) bundle.get("data");
+
+                imageView2.setImageBitmap(bitmap);
+
+
+            }
+            if (result.getResultCode() == Activity.RESULT_OK && mycode == 3){
+                assert result.getData() != null;
+                Bundle bundle = result.getData().getExtras();
+                Bitmap bitmap = (Bitmap) bundle.get("data");
+
+                imageView3.setImageBitmap(bitmap);
+
+
+            }
+
+            else {
+                Log.d("cameraintent","act result");
+            }
+
+        }
+    });
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (getArguments() != null) {
+            testnametobesaved = getArguments().getString(ARG_PARAM1);
+            testdescriptiontobesaved = getArguments().getString(ARG_PARAM2);
+        }
+
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mycode = 1;
+
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                mGetContent.launch(intent);
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mycode = 2;
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                mGetContent.launch(intent);
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mycode = 3;
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                mGetContent.launch(intent);
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                testuniquekey = UUID.randomUUID().toString();
+                uploadimages(testuniquekey);
+
+
+            }
+        });
+    }
+
+    private void uploadimages(String testuniquekey) {
+        imageView1.setDrawingCacheEnabled(true);
+        imageView2.setDrawingCacheEnabled(true);
+        imageView3.setDrawingCacheEnabled(true);
+
+        Bitmap bitmap1 = imageView1.getDrawingCache();
+        Bitmap bitmap2 = imageView2.getDrawingCache();
+        Bitmap bitmap3 = imageView3.getDrawingCache();
+
+
+
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+        StorageReference myref = storageReference.child(testuniquekey).child("questionphotos");
+
+
+
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Uploading..."); // Setting Message
+        progressDialog.setTitle("Wait"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+
+        uploadimage1(bitmap1,myref,bitmap2,bitmap3);
+    }
+
+    private void uploadimage1(Bitmap bitmap1, StorageReference myref, Bitmap bitmap2, Bitmap bitmap3) {
+
+        ByteArrayOutputStream ba1=new ByteArrayOutputStream(  );
+        bitmap1.compress( Bitmap.CompressFormat.PNG,90,ba1 );
+        byte[] by1=ba1.toByteArray();
+//        String encod= Base64.encodeToString( by,Base64.DEFAULT );
+//        Uri filepath = Uri.parse(encod);
+
+        myref.child("1").putBytes(by1)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(getActivity(), "upload 1 success", Toast.LENGTH_SHORT).show();
+                        uploadimage2(bitmap2,myref,bitmap3);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Toast.makeText(getActivity(), "upload 1 failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+    private void uploadimage2(Bitmap bitmap2, StorageReference myref, Bitmap bitmap3) {
+        ByteArrayOutputStream ba2=new ByteArrayOutputStream(  );
+        bitmap2.compress( Bitmap.CompressFormat.PNG,90,ba2 );
+
+        byte[] by2=ba2.toByteArray();
+//        String encod= Base64.encodeToString( by,Base64.DEFAULT );
+//        Uri filepath = Uri.parse(encod);
+        myref.child("2").putBytes(by2)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(getActivity(), "upload 2 success", Toast.LENGTH_SHORT).show();
+                        uploadimage3(bitmap3,myref);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Toast.makeText(getActivity(), "upload 2 failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    private void uploadimage3(Bitmap bitmap3, StorageReference myref) {
+        ByteArrayOutputStream ba3=new ByteArrayOutputStream(  );
+        bitmap3.compress( Bitmap.CompressFormat.PNG,90,ba3 );
+
+        byte[] by3=ba3.toByteArray();
+//        String encod= Base64.encodeToString( by,Base64.DEFAULT );
+//        Uri filepath = Uri.parse(encod);
+        myref.child("3").putBytes(by3)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(getActivity(), "upload 3 success", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                        Intent intent = new Intent(getActivity(), AftercreatedetailsActivity.class);
+                        intent.putExtra("mytestname", testnametobesaved);
+                        intent.putExtra("mytestdescription", testdescriptiontobesaved);
+                        intent.putExtra("mytestid", testuniquekey);
+
+                        startActivity(intent);
+                        requireActivity().finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Toast.makeText(getActivity(), "upload 3 failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+
+
 }

@@ -1,18 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+
     >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Test Details(share with students)"
+        android:text="Test Details(share with others, take screenshot)"
         android:fontFamily="sans-serif-condensed"
         android:textStyle="bold"
-        android:textSize="24sp"
-        android:textAlignment="center"/>
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test Name:   "
+            android:textColor="@color/blackshade1"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/textview3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test Description:   "
+            android:textColor="@color/blackshade1"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/textview5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test ID:   "
+            android:textColor="@color/blackshade1"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/textview7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finish"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_bg"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/buttonfinish"/>
 
 </LinearLayout>

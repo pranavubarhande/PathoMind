@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InsidetestFragment2"
+    android:orientation="vertical">
+    <ListView
+        android:id="@+id/listviewfrag2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="0.1"
+
+        >
+        <EditText
+            android:id="@+id/edittextinsidefrag2"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="0.96"
+
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:hint="Send a message .."
+            android:inputType="text"/>
+        <Button
+            android:id="@+id/buttom1insidefrag2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.04"
+            android:background="@drawable/ic_baseline_send_24"
+            tools:backgroundTint="@null"
+            />
+
+    </LinearLayout>
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+</LinearLayout>

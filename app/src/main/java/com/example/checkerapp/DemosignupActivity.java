@@ -122,7 +122,7 @@ public class DemosignupActivity extends AppCompatActivity {
                 else if (txt_password.length()<6){
                     showToast("Password Small");
                 }
-                else if (txt_password == txt_confirmpassword){
+                else if (! txt_password.equals(txt_confirmpassword)){
                     showToast("Pass and Confirm pass different");
                 }
                 else{
@@ -135,8 +135,9 @@ public class DemosignupActivity extends AppCompatActivity {
                     Signupentries obj = new Signupentries(mo,fulnm, txt_email, txt_password);
                     String key = reference.push().getKey();
 
+                    assert key != null;
                     reference.child("users").child(key).setValue(obj);
-                    reference.child("userkeys").child(key).setValue(txt_email);
+                    reference.child("userkeys").child(key).child("email").setValue(txt_email);
 
 
                     showToast("User Registered");

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.checkerapp">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -10,8 +14,14 @@
         android:label="Path-O-Mind"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Checkerapp">
-        <activity android:name=".AftercreatedetailsActivity"></activity>
+        android:theme="@style/Theme.Checkerapp"
+        tools:replace="android:label">
+        <activity android:name=".HowtoActivity"></activity>
+        <activity android:name=".UserinfoActivity" />
+        <activity android:name=".TestblankActivity" />
+        <activity android:name=".JointestActivity" />
+        <activity android:name=".InsidetestActivity" />
+        <activity android:name=".AftercreatedetailsActivity" />
         <activity android:name=".CreatetestActivity" />
         <activity android:name=".StartingscreenActivity" />
         <activity android:name=".DemosignupActivity" />

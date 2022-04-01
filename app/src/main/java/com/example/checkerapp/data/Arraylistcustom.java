@@ -2,29 +2,34 @@ package com.example.checkerapp.data;
 
 public class Arraylistcustom {
     private String testname;
-    private String testinfo;
-    private  String testidfirebs;
+    private String testdescription;
+    private String testid;
+    public Arraylistcustom(){
 
-    public Arraylistcustom(String testname, String testinfo, String testidfirebs) {
-        this.testname = testname;
-        this.testinfo = testinfo;
-        this.testidfirebs = testidfirebs;
     }
-    public Arraylistcustom(String testname, String testinfo) {
+
+    public Arraylistcustom(String testdescription,String testid, String testname) {
+        this.testdescription = testdescription;
+        this.testid = testid;
         this.testname = testname;
-        this.testinfo = testinfo;
+
     }
-    public String getTestname() {
+    public String gettestname() {
         return testname;
     }
-    public void setTestname(String testname) {
+    public void settestname(String testname) {
         this.testname = testname;
     }
-    public String getTestinfo() {
-        return testinfo;
+    public String gettestdescription() {
+        return testdescription;
     }
-    public void setTestinfo(String testinfo) {
-        this.testinfo = testinfo;
+    public void settestdescription(String testinfo) {
+        this.testdescription = testinfo;
     }
-    public String getTestidfirebs(){return testidfirebs;}
+    public String gettestid() {
+        return testid;
+    }
+    public void settestid(String testid) {
+        this.testid = testid;
+    }
 }

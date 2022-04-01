@@ -263,6 +263,7 @@ public class SecondFragmentcrtest extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
                         Toast.makeText(getActivity(), "upload 1 success", Toast.LENGTH_SHORT).show();
                         uploadimage2(bitmap2,myref,bitmap3,bitmap4,bitmap5);
                     }
